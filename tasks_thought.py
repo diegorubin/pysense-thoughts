@@ -8,7 +8,7 @@ from sense.memories import db
 
 class TasksThought(ThoughtBase):
     def run(self):
-	pass
+        pass
 
     def list(self, argv):
         list_name = argv[3]
