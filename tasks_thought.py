@@ -37,7 +37,7 @@ class TasksThought(ThoughtBase):
 
         tasks = self.__get_tasks(list_name)
 
-        # remove item
+        del tasks[item]
 
         save_in_table(self.__table(), list_name, tasks)
         return "\n".join(tasks)
@@ -54,7 +54,6 @@ class TasksThought(ThoughtBase):
     def __get_tasks(self, list_name):
         tasks = find_in_table(self.__table(), list_name)
 
-        print(len(tasks))
         if len(tasks) == 0:
             tasks = []
         else:

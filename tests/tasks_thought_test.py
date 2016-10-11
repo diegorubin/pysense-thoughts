@@ -54,7 +54,7 @@ class TasksThoughtTest(unittest.TestCase):
 
     @patch('tasks_thought.find_in_table')
     @patch('tasks_thought.save_in_table')
-    def test_insert(self, find_in_table, save_in_table):
+    def test_remove(self, save_in_table, find_in_table):
         find_in_table.return_value = [
             {'name': 'list name', 'value': ['one', 'two', 'three']}
         ]
