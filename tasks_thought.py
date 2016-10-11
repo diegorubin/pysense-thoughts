@@ -1,8 +1,8 @@
 from datetime import datetime
 
-from sense.actions import notify
-from sense.thought import ThoughtBase
-from sense.memories import db, find_in_table, save_in_table
+from pysense.actions import notify
+from pysense.thought import ThoughtBase
+from pysense.memories import db, find_in_table, save_in_table
 
 class TasksThought(ThoughtBase):
     def run(self):
