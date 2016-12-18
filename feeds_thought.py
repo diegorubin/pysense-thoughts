@@ -19,7 +19,7 @@ class FeedsThought(ThoughtBase):
             address = feed['name']
             feed_content = self.__get_feed_content(address)
             items = self.__notify_unread_items(feed_content, feed['value'])
-        save_in_table(table, feed, items)
+            save_in_table(table, address, items)
 
     def list(self, argv):
         feeds = []
