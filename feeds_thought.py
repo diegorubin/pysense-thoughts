@@ -1,9 +1,9 @@
 from datetime import datetime
 
 try:
-    from urllib import request
-except ImportError:
     import urllib2 as request
+except ImportError:
+    from urllib import request
 
 import xml.dom.minidom
 
