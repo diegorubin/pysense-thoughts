@@ -14,10 +14,12 @@ from pysense.memories import db, all, save_in_table
 class FeedsThought(ThoughtBase):
 
     def run(self):
-        for feed in all(self.__table()):
+        table = self.__table()
+        for feed in all(table):
             address = feed['name']
             feed_content = self.__get_feed_content(address)
-            self.__notify_unread_items(feed_content, feed['value'])
+            items = self.__notify_unread_items(feed_content, feed['value'])
+        save_in_table(table, feed, items)
 
     def list(self, argv):
         feeds = []
@@ -51,6 +53,8 @@ class FeedsThought(ThoughtBase):
             item_title = item.getElementsByTagName('title')[0].firstChild.data
             if not item_title in items:
                 notify(title, item_title)
+                items.append(item_title)
+        return items
 
 def init():
     thought = FeedsThought()
